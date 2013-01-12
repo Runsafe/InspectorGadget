@@ -5,6 +5,7 @@ import no.runsafe.framework.server.block.RunsafeBlock;
 import no.runsafe.framework.server.item.RunsafeItemStack;
 import no.runsafe.framework.server.player.RunsafePlayer;
 import org.bukkit.block.BlockState;
+import org.bukkit.craftbukkit.v1_4_6.block.CraftCreatureSpawner;
 
 public class RightClick implements IPlayerRightClickBlock
 {
@@ -30,11 +31,18 @@ public class RightClick implements IPlayerRightClickBlock
 				block.getLocation().getBlockZ()
 			)
 		);
-		dump.append(String.format("&5Data&r: %s", block.getRaw().getData()));
+		dump.append(String.format("&5Data&r: %s\n", block.getRaw().getData()));
 		BlockState state = block.getRaw().getState();
 		dump.append(String.format("&5Block state&r: %s\n", state.getClass().getCanonicalName()));
-		dump.append(String.format(" - RawData: ", state.getRawData()));
-		dump.append(String.format(" - Type: ", state.getType().name()));
+		dump.append(String.format(" - RawData: %s\n", state.getRawData()));
+		dump.append(String.format(" - Type: %s\n", state.getType().name()));
+		if(state instanceof CraftCreatureSpawner)
+		{
+			CraftCreatureSpawner spawner = (CraftCreatureSpawner)state;
+			dump.append(String.format(" - Spawned Type: %s\n", spawner.getSpawnedType().name()));
+			dump.append(String.format(" - Creature Type Name: %s\n", spawner.getCreatureTypeName()));
+			dump.append(String.format(" - Delay: %d\n", spawner.getDelay()));
+		}
 		return dump.toString();
 	}
 }
