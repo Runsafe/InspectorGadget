@@ -1,7 +1,7 @@
 package no.runsafe.inspectorgadget;
 
-import no.runsafe.InspectorGadget.events.RightClick;
 import no.runsafe.framework.RunsafePlugin;
+import no.runsafe.inspectorgadget.events.RightClick;
 
 public class Plugin extends RunsafePlugin
 {
