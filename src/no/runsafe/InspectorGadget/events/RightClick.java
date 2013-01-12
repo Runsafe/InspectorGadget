@@ -1,4 +1,4 @@
-package no.runsafe.InspectorGadget.events;
+package no.runsafe.inspectorgadget.events;
 
 import no.runsafe.framework.event.player.IPlayerRightClickBlock;
 import no.runsafe.framework.server.block.RunsafeBlock;
@@ -11,7 +11,7 @@ public class RightClick implements IPlayerRightClickBlock
 	@Override
 	public boolean OnPlayerRightClick(RunsafePlayer player, RunsafeItemStack usingItem, RunsafeBlock targetBlock)
 	{
-		if (player.hasPermission("runsafe.inspector.gadget.blockdump"))
+		if (player.hasPermission("runsafe.inspector.gadget.blockdump") && usingItem.getItemId() == 265)
 		{
 			player.sendColouredMessage(dumpData(targetBlock));
 		}
@@ -33,6 +33,8 @@ public class RightClick implements IPlayerRightClickBlock
 		dump.append(String.format("&5Data&r: %s", block.getRaw().getData()));
 		BlockState state = block.getRaw().getState();
 		dump.append(String.format("&5Block state&r: %s\n", state.getClass().getCanonicalName()));
-		dump.append(String.format(" - ", ));
+		dump.append(String.format(" - RawData: ", state.getRawData()));
+		dump.append(String.format(" - Type: ", state.getType().name()));
+		return dump.toString();
 	}
 }
