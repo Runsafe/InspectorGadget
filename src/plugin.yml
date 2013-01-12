@@ -1,10 +1,6 @@
 name: InspectorGadget
 main: no.runsafe.inspectorgadget.Plugin
 version: 1.0.@BUILD@
-authors: []
+authors: [mortenn]
 depend: []
-description:
-commands:
-  something:
-    description:
-    aliases: []
+description: Collection of gadgets for inspecting a minecraft world
