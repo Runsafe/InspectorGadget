@@ -12,7 +12,7 @@ public class RightClick implements IPlayerRightClickBlock
 	@Override
 	public boolean OnPlayerRightClick(RunsafePlayer player, RunsafeItemStack usingItem, RunsafeBlock targetBlock)
 	{
-		if (player.hasPermission("runsafe.inspector.gadget.blockdump") && usingItem.getItemId() == 265)
+		if (usingItem != null && usingItem.getItemId() == 265 && player.hasPermission("runsafe.inspector.gadget.blockdump"))
 		{
 			player.sendColouredMessage(dumpData(targetBlock));
 		}
@@ -36,9 +36,9 @@ public class RightClick implements IPlayerRightClickBlock
 		dump.append(String.format("&5Block state&r: %s\n", state.getClass().getCanonicalName()));
 		dump.append(String.format(" - RawData: %s\n", state.getRawData()));
 		dump.append(String.format(" - Type: %s\n", state.getType().name()));
-		if(state instanceof CraftCreatureSpawner)
+		if (state instanceof CraftCreatureSpawner)
 		{
-			CraftCreatureSpawner spawner = (CraftCreatureSpawner)state;
+			CraftCreatureSpawner spawner = (CraftCreatureSpawner) state;
 			dump.append(String.format(" - Spawned Type: %s\n", spawner.getSpawnedType().name()));
 			dump.append(String.format(" - Creature Type Name: %s\n", spawner.getCreatureTypeName()));
 			dump.append(String.format(" - Delay: %d\n", spawner.getDelay()));
