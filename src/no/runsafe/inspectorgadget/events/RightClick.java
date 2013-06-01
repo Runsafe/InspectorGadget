@@ -1,6 +1,7 @@
 package no.runsafe.inspectorgadget.events;
 
 import no.runsafe.framework.event.player.IPlayerRightClickBlock;
+import no.runsafe.framework.minecraft.Item;
 import no.runsafe.framework.server.block.RunsafeBlock;
 import no.runsafe.framework.server.item.RunsafeItemStack;
 import no.runsafe.framework.server.player.RunsafePlayer;
@@ -12,7 +13,7 @@ public class RightClick implements IPlayerRightClickBlock
 	@Override
 	public boolean OnPlayerRightClick(RunsafePlayer player, RunsafeItemStack usingItem, RunsafeBlock targetBlock)
 	{
-		if (usingItem != null && usingItem.getItemId() == 265 && player.hasPermission("runsafe.inspector.gadget.blockdump"))
+		if (usingItem != null && usingItem.is(Item.Materials.IronIngot) && player.hasPermission("runsafe.inspector.gadget.blockdump"))
 		{
 			player.sendColouredMessage(dumpData(targetBlock));
 		}
