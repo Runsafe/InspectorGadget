@@ -26,7 +26,7 @@ public class RightClick implements IPlayerRightClickBlock
 		dump.append(
 			String.format(
 				"&2%s &r@&4%d&r,&2%d&r,&1%d&r\n",
-				block.getMaterialType().getRaw().name(),
+				block.getMaterial().getType().name(),
 				block.getLocation().getBlockX(),
 				block.getLocation().getBlockY(),
 				block.getLocation().getBlockZ()
