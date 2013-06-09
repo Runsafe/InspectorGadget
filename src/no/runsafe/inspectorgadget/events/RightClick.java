@@ -3,7 +3,7 @@ package no.runsafe.inspectorgadget.events;
 import no.runsafe.framework.event.player.IPlayerRightClickBlock;
 import no.runsafe.framework.minecraft.Item;
 import no.runsafe.framework.server.block.RunsafeBlock;
-import no.runsafe.framework.server.item.RunsafeItemStack;
+import no.runsafe.framework.server.item.meta.RunsafeMeta;
 import no.runsafe.framework.server.player.RunsafePlayer;
 import org.bukkit.block.BlockState;
 import org.bukkit.craftbukkit.v1_5_R3.block.CraftCreatureSpawner;
@@ -11,7 +11,7 @@ import org.bukkit.craftbukkit.v1_5_R3.block.CraftCreatureSpawner;
 public class RightClick implements IPlayerRightClickBlock
 {
 	@Override
-	public boolean OnPlayerRightClick(RunsafePlayer player, RunsafeItemStack usingItem, RunsafeBlock targetBlock)
+	public boolean OnPlayerRightClick(RunsafePlayer player, RunsafeMeta usingItem, RunsafeBlock targetBlock)
 	{
 		if (usingItem != null && usingItem.is(Item.Materials.IronIngot) && player.hasPermission("runsafe.inspector.gadget.blockdump"))
 		{
