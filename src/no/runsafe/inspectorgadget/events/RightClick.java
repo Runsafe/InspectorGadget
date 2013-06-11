@@ -1,10 +1,10 @@
 package no.runsafe.inspectorgadget.events;
 
-import no.runsafe.framework.event.player.IPlayerRightClickBlock;
+import no.runsafe.framework.api.event.player.IPlayerRightClickBlock;
 import no.runsafe.framework.minecraft.Item;
-import no.runsafe.framework.server.block.RunsafeBlock;
-import no.runsafe.framework.server.item.meta.RunsafeMeta;
-import no.runsafe.framework.server.player.RunsafePlayer;
+import no.runsafe.framework.minecraft.block.RunsafeBlock;
+import no.runsafe.framework.minecraft.item.meta.RunsafeMeta;
+import no.runsafe.framework.minecraft.player.RunsafePlayer;
 import org.bukkit.block.BlockState;
 import org.bukkit.craftbukkit.v1_5_R3.block.CraftCreatureSpawner;
 
