@@ -2,17 +2,17 @@ package no.runsafe.inspectorgadget.events;
 
 import no.runsafe.framework.api.block.IBlock;
 import no.runsafe.framework.api.event.player.IPlayerRightClickBlock;
+import no.runsafe.framework.api.player.IPlayer;
 import no.runsafe.framework.minecraft.Item;
 import no.runsafe.framework.minecraft.block.RunsafeBlock;
 import no.runsafe.framework.minecraft.item.meta.RunsafeMeta;
-import no.runsafe.framework.minecraft.player.RunsafePlayer;
 import org.bukkit.block.BlockState;
 import org.bukkit.craftbukkit.v1_6_R3.block.CraftCreatureSpawner;
 
 public class RightClick implements IPlayerRightClickBlock
 {
 	@Override
-	public boolean OnPlayerRightClick(RunsafePlayer player, RunsafeMeta usingItem, IBlock targetBlock)
+	public boolean OnPlayerRightClick(IPlayer player, RunsafeMeta usingItem, IBlock targetBlock)
 	{
 		if (usingItem != null && usingItem.is(Item.Materials.IronIngot) && player.hasPermission("runsafe.inspector.gadget.blockdump"))
 		{
@@ -33,8 +33,8 @@ public class RightClick implements IPlayerRightClickBlock
 				block.getLocation().getBlockZ()
 			)
 		);
-		dump.append(String.format("&5Data&r: %s\n", ((RunsafeBlock)block).getRaw().getData()));
-		BlockState state = ((RunsafeBlock)block).getRaw().getState();
+		dump.append(String.format("&5Data&r: %s\n", ((RunsafeBlock) block).getRaw().getData()));
+		BlockState state = ((RunsafeBlock) block).getRaw().getState();
 		dump.append(String.format("&5Block state&r: %s\n", state.getClass().getCanonicalName()));
 		dump.append(String.format(" - RawData: %s\n", state.getRawData()));
 		dump.append(String.format(" - Type: %s\n", state.getType().name()));
