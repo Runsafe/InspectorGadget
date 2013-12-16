@@ -7,7 +7,7 @@ import no.runsafe.inspectorgadget.events.RightClick;
 public class Plugin extends RunsafePlugin
 {
 	@Override
-	protected void PluginSetup()
+	protected void pluginSetup()
 	{
 		addComponent(Events.class);
 		addComponent(RightClick.class);
