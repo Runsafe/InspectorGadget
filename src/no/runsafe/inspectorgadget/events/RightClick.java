@@ -7,7 +7,7 @@ import no.runsafe.framework.internal.extension.block.RunsafeBlock;
 import no.runsafe.framework.minecraft.Item;
 import no.runsafe.framework.minecraft.item.meta.RunsafeMeta;
 import org.bukkit.block.BlockState;
-import org.bukkit.craftbukkit.v1_7_R1.block.CraftCreatureSpawner;
+import org.bukkit.craftbukkit.v1_12_R1.block.CraftCreatureSpawner;
 
 public class RightClick implements IPlayerRightClickBlock
 {
